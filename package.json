@@ -1,0 +1,35 @@
+{
+  "name": "react-qrsvg",
+  "version": "0.0.1",
+  "description": "Render QR codes.",
+  "main": "./lib/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "~5.8.20",
+    "babel-plugin-object-assign": "~1.2.1",
+    "babel-eslint": "~4.0.5",
+    "mocha": "~2.2.5",
+    "eslint": "~0.24.0",
+    "babel": "~5.8.20",
+    "babel-plugin-espower": "~1.0.0",
+    "power-assert": "~0.11.0"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "test": "./node_modules/.bin/mocha --compilers js:babel/register --reporter min src/**/__tests__/**/*test*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hzdg/react-qrsvg.js.git"
+  },
+  "keywords": [
+    "qr",
+    "qrcode"
+  ],
+  "author": "Matthew Dapena-Tretter <m@tthewwithanm.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hzdg/react-qrsvg.js/issues"
+  }
+}
