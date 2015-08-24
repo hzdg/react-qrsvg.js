@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Render QR codes.",
   "main": "./lib/index.js",
+  "publishConfig": {
+    "registry": "http://npmregistry.hzdg.com"
+  },
   "dependencies": {
     "qr.js": "0.0.0",
     "lodash.omit": "~3.1.0"
