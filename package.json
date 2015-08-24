@@ -31,7 +31,8 @@
   },
   "keywords": [
     "qr",
-    "qrcode"
+    "qrcode",
+    "react-component"
   ],
   "author": "Matthew Dapena-Tretter <m@tthewwithanm.com>",
   "license": "MIT",
