@@ -33,6 +33,7 @@ export default class QrSvg extends React.Component {
     const {modules} = qr(this.props.children, opts);
     return (
       <svg
+        style={{display: 'block'}}
         width={this.props.size}
         height={this.props.size}
         viewBox={`0 0 ${modules.length} ${modules.length}`}
