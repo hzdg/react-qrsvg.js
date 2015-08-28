@@ -1,6 +1,6 @@
 {
   "name": "react-qrsvg",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Render QR codes.",
   "main": "./lib/index.js",
   "publishConfig": {
