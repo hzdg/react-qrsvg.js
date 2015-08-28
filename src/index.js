@@ -43,13 +43,25 @@ export default class QrSvg extends React.Component {
     );
   }
 
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.children !== this.props.children) return true;
+    if (nextProps.size !== this.props.size) return true;
+    if (nextProps.module !== this.props.module) return true;
+    return false;
+  }
+
   renderModules(modules) {
+    // React performs worst when rendering a long list of items, so we'll group
+    // them by row. This could probably be smarter.
+    return modules.map((row, x) => (
+      <g key={`${this.props.children}--${x}`}>{this.renderRow(row, x)}</g>
+    ));
+  }
+
+  renderRow(row, x) {
     const ModuleComponent = this.props.module;
-    return modules.reduce((blocks, row, x) => {
-      row.forEach((value, y) => {
-        blocks.push(<ModuleComponent value={value} x={x} y={y} />);
-      });
-      return blocks;
-    }, []);
+    return row.map((value, y) => (
+      <ModuleComponent key={`${x}--${y}`} value={value} x={x} y={y} />
+    ));
   }
 }
