@@ -30,7 +30,7 @@ export default class QrSvg extends React.Component {
 
   render() {
     const opts = omit(this.props, ['size', 'children', 'module']);
-    const {modules} = qr(this.props.children, opts);
+    const {modules} = qr(this.props.children, {opts});
     return (
       <svg
         style={{display: 'block'}}
@@ -53,14 +53,14 @@ export default class QrSvg extends React.Component {
   renderModules(modules) {
     // React performs worst when rendering a long list of items, so we'll group
     // them by row. This could probably be smarter.
-    return modules.map((row, x) => (
-      <g key={`${this.props.children}--${x}`}>{this.renderRow(row, x)}</g>
+    return modules.map((row, y) => (
+      <g key={`${this.props.children}--${y}`}>{this.renderRow(row, y)}</g>
     ));
   }
 
-  renderRow(row, x) {
+  renderRow(row, y) {
     const ModuleComponent = this.props.module;
-    return row.map((value, y) => (
+    return row.map((value, x) => (
       <ModuleComponent key={`${x}--${y}`} value={value} x={x} y={y} />
     ));
   }
